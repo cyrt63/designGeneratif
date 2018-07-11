@@ -26,10 +26,12 @@
  * KEYS
  * s                   : save png
  * p                   : save pdf
+ * q				   : quit
  */
 
 package processing.designGeneratif.principesFondamentaux;
 import processing.core.PApplet;
+import processing.designGeneratif.utils.version.TheVersionClass;
 import processing.pdf.*;
 
 import java.io.IOException;
@@ -91,6 +93,7 @@ public class P_1_0_Bonjour_Couleur extends PApplet {
 	public void keyPressed() {
 		if (key=='s' || key=='S') saveFrame(timestamp()+"_##.png");
 		if (key=='p' || key=='P') savePDF = true;
+		if (key=='q' || key=='Q') fin();
 	}
 
 
@@ -98,5 +101,11 @@ public class P_1_0_Bonjour_Couleur extends PApplet {
 		Calendar now = Calendar.getInstance();
 		return String.format("%1$ty%1$tm%1$td_%1$tH%1$tM%1$tS", now);
 	}   
+	
+	public void fin() {
+		System.out.println("Exit ...");
+		dispose();
+		System.exit(0);
+	}
 
 }

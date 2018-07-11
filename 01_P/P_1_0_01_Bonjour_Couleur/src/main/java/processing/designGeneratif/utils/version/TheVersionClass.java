@@ -3,7 +3,7 @@
  * https://github.com/khmarbaise/version-examples/tree/master/version-example-iii
  */
 
-package processing.designGeneratif.principesFondamentaux;
+package processing.designGeneratif.utils.version;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +32,6 @@ public class TheVersionClass {
 	public String getPath() {
 		return Path;
 	}
-
-
 
 	private String getEntryById(String id) {
 		return prop.getProperty(id);
