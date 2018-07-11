@@ -31,24 +31,43 @@
 package processing.designGeneratif.principesFondamentaux;
 import processing.core.PApplet;
 import processing.pdf.*;
+
+import java.io.IOException;
 import java.util.Calendar;
 
 @SuppressWarnings("unused")
 public class P_1_0_Bonjour_Couleur extends PApplet {
 	boolean savePDF = false;
 
+
 	public static void main( String[] args ) {
-		PApplet.main("processing.designGeneratif.principesFondamentaux.P_1_0_Bonjour_Couleur");
+		String path;
+		/*
+	 		Version: 0.0.1-SNAPSHOT
+			groupId: processing.designGeneratif.principesFondamentaux
+			artifactId: P_1_0_Bonjour_Couleur
+			Path: processing.designGeneratif.principesFondamentaux.P_1_0_Bonjour_Couleur
+		 */
+		
+		TheVersionClass theVersion = new TheVersionClass();
+		path = theVersion.getPath();
+		
+		//PApplet.main("processing.designGeneratif.principesFondamentaux.P_1_0_Bonjour_Couleur");	
+		PApplet.main(path);	
+		
 	}
 
+	@Override
 	public void settings() {
 		size(720, 720);
 	}    
 
+	@Override
 	public void setup() {
 		noCursor();
 	}
 
+	@Override
 	public void draw() {
 		// this line will start pdf export, if the variable savePDF was set to true 
 		if (savePDF) beginRecord(PDF, timestamp()+".pdf");
@@ -68,7 +87,7 @@ public class P_1_0_Bonjour_Couleur extends PApplet {
 		}
 	}
 
-
+	@Override
 	public void keyPressed() {
 		if (key=='s' || key=='S') saveFrame(timestamp()+"_##.png");
 		if (key=='p' || key=='P') savePDF = true;
